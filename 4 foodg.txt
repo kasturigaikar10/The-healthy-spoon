@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <br>
+        <br> 
+        <b><h1><center>4.Quinoa fruit salad</center> </h1></b>   
+    </head>
+    <body>
+        <img src="4food.png">
+        <br>
+        <b><h2>Ingredients :</h2></b>
+        <ol><big>
+        <li> 2 cups cooked quinoa</li>
+        <li> 1 mango, peeled and diced</li>
+        <li> 1 cup strawberries, quartered</li>
+        <li> 1/2 cup blueberries</li>
+        <li> 2 tablespoons pine nuts</li>
+        <li> Chopped mint leaves, for garnish</li>
+            <br>
+         <li> FOR THE LEMON VINAIGRETTE</li>
+         <li> 1/4 cup olive oil</li>
+         <li> 1/4 cup apple cider vinegar</li>
+         <li> Zest of 1 lemon</li>
+         <li> 3 tablespoons freshly squeezed lemon juice</li>
+         <li> 1 tablespoon sugar</li>
+         </big>
+         </ol>
+         <b><h2>Recipe :</h2></b>
+         <p><big> 1. To make the vinaigrette, whisk together olive oil, apple cider vinegar, lemon zest and juice, and sugar in a small bowl; set aside.<br>
+            2. In a large bowl, combine quinoa, mango, strawberries, blueberries and pine nuts. Stir in lemon vinaigrette.<br>
+           3.  Serve immediately, garnished with mint leaves. </big></p>
+
+         
