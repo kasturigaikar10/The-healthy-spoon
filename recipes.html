@@ -1,13 +1,491 @@
-<html>
-    <head> 
-      <b> <h1> 5 Quick and healthy recipies</h1></b>
-    </head>
-    <hr>
-    <body>
-         <center><h2><a href="1food.html" >1.Grrek yogurt chicken salad sandwich</a></h2></center>
-         <center> <h2> <a href="2food.html">2.Avocado pasta</a></h2></center>
-         <center> <h2> <a href="3food.html">3.quinoa Stuffed Bell Peppers</a></h2></center>
-         <center> <h2> <a href="4food.html">4.Quinoa fruit salad</a></h2></center>
-         <center> <h2> <a href="5food.html">5.Chicken Pesto Kabobs</a></h2></center>
-    </body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Healthy Recipes | Healthy Food Collection</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f5f7ee;
+            color: #244a34;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #173d2c;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: bold;
+            color: #d7f5a5;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #d7f5a5;
+        }
+
+        /* Hero banner */
+        .hero {
+            padding: 75px 7%;
+            text-align: center;
+            color: white;
+
+            background:
+                linear-gradient(
+                    rgba(13, 48, 30, 0.78),
+                    rgba(13, 48, 30, 0.78)
+                ),
+                url("https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .tagline {
+            color: #d7f5a5;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 6vw, 58px);
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            color: #c7ed91;
+        }
+
+        .hero p {
+            max-width: 620px;
+            margin: auto;
+            line-height: 1.8;
+            font-size: 17px;
+            color: #f1f5ec;
+        }
+
+        /* Recipes section */
+        .recipes {
+            padding: 65px 7%;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 38px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(27px, 4vw, 38px);
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: #68776b;
+            line-height: 1.7;
+        }
+
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .recipe-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(23, 61, 44, 0.09);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 14px 30px rgba(23, 61, 44, 0.16);
+        }
+
+        .recipe-card img {
+            display: block;
+            width: 100%;
+            height: 215px;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .recipe-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .image-wrap {
+            overflow: hidden;
+        }
+
+        .recipe-info {
+            padding: 23px;
+        }
+
+        .number {
+            display: inline-block;
+            background: #e8f3d8;
+            color: #315b38;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-bottom: 13px;
+        }
+
+        .recipe-info h3 {
+            font-size: 20px;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .recipe-info p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #68776b;
+            margin-bottom: 20px;
+        }
+
+        .recipe-btn {
+            display: inline-block;
+            background: #c7ed91;
+            color: #173d2c;
+            text-decoration: none;
+            padding: 11px 18px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .recipe-btn:hover {
+            background: #aee16f;
+        }
+
+        /* Bottom banner */
+        .bottom {
+            text-align: center;
+            padding: 45px 7%;
+            background: #e7efd9;
+        }
+
+        .bottom h2 {
+            margin-bottom: 12px;
+            font-size: 27px;
+        }
+
+        .bottom p {
+            color: #627064;
+            line-height: 1.7;
+        }
+
+        .home-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 22px;
+            background: #173d2c;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px 15px;
+            color: white;
+            background: #173d2c;
+            font-size: 14px;
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease,
+                        transform 0.7s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Tablet and mobile */
+        @media (max-width: 900px) {
+            .recipe-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 18px 5%;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .hero {
+                padding: 60px 6%;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .tagline {
+                font-size: 11px;
+                letter-spacing: 2px;
+            }
+
+            .recipes {
+                padding: 45px 6%;
+            }
+
+            .recipe-grid {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+
+            .recipe-card img {
+                height: 220px;
+            }
+
+            .recipe-info {
+                padding: 22px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">🥗 Healthy Bites</div>
+        <a href="index.html">← Back to Home</a>
+    </nav>
+
+    <!-- Hero section -->
+    <header class="hero">
+        <div class="tagline">Fresh • Tasty • Nutritious</div>
+
+        <h1>5 Quick &amp; <span>Healthy Recipes</span></h1>
+
+        <p>
+            Discover delicious food ideas for your everyday meals.
+            Easy to explore, enjoyable to prepare, and perfect
+            for sharing with family!
+        </p>
+    </header>
+
+    <!-- Recipe cards -->
+    <main class="recipes" id="recipes">
+
+        <div class="section-heading reveal">
+            <h2>Explore Our Recipes 🍃</h2>
+            <p>Choose your favourite dish and discover more!</p>
+        </div>
+
+        <div class="recipe-grid">
+
+            <!-- Recipe 1 -->
+            <article class="recipe-card reveal">
+                <div class="image-wrap">
+                    <img
+                        src="https://images.unsplash.com/photo-1553909489-cd47e0ef937f?auto=format&fit=crop&w=800&q=80"
+                        alt="Fresh sandwich"
+                        loading="lazy">
+                </div>
+
+                <div class="recipe-info">
+                    <span class="number">RECIPE 01</span>
+                    <h3>Greek Yogurt Chicken Salad Sandwich</h3>
+                    <p>
+                        A creamy, delicious sandwich idea for
+                        a satisfying lunch.
+                    </p>
+                    <a class="recipe-btn" href="1food.html">
+                        View Recipe →
+                    </a>
+                </div>
+            </article>
+
+            <!-- Recipe 2 -->
+            <article class="recipe-card reveal">
+                <div class="image-wrap">
+                    <img
+                        src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80"
+                        alt="Pasta with fresh herbs"
+                        loading="lazy">
+                </div>
+
+                <div class="recipe-info">
+                    <span class="number">RECIPE 02</span>
+                    <h3>Avocado Pasta</h3>
+                    <p>
+                        Enjoy a creamy pasta dish with fresh
+                        flavours and a delicious twist.
+                    </p>
+                    <a class="recipe-btn" href="2food.html">
+                        View Recipe →
+                    </a>
+                </div>
+            </article>
+
+            <!-- Recipe 3 -->
+            <article class="recipe-card reveal">
+                <div class="image-wrap">
+                    <img
+                        src="https://images.unsplash.com/photo-1515543904379-3d757afe72e4?auto=format&fit=crop&w=800&q=80"
+                        alt="Colourful stuffed vegetables"
+                        loading="lazy">
+                </div>
+
+                <div class="recipe-info">
+                    <span class="number">RECIPE 03</span>
+                    <h3>Quinoa Stuffed Bell Peppers</h3>
+                    <p>
+                        Colourful peppers filled with a tasty
+                        and wholesome combination.
+                    </p>
+                    <a class="recipe-btn" href="3food.html">
+                        View Recipe →
+                    </a>
+                </div>
+            </article>
+
+            <!-- Recipe 4 -->
+            <article class="recipe-card reveal">
+                <div class="image-wrap">
+                    <img
+                        src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=800&q=80"
+                        alt="Fresh fruit salad"
+                        loading="lazy">
+                </div>
+
+                <div class="recipe-info">
+                    <span class="number">RECIPE 04</span>
+                    <h3>Quinoa Fruit Salad</h3>
+                    <p>
+                        A refreshing combination of fruity
+                        flavours for a colourful meal.
+                    </p>
+                    <a class="recipe-btn" href="4food.html">
+                        View Recipe →
+                    </a>
+                </div>
+            </article>
+
+            <!-- Recipe 5 -->
+            <article class="recipe-card reveal">
+                <div class="image-wrap">
+                    <img
+                        src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=800&q=80"
+                        alt="Grilled chicken dish"
+                        loading="lazy">
+                </div>
+
+                <div class="recipe-info">
+                    <span class="number">RECIPE 05</span>
+                    <h3>Chicken Pesto Kabobs</h3>
+                    <p>
+                        A tasty grilled chicken idea with
+                        fresh herbs and savoury flavours.
+                    </p>
+                    <a class="recipe-btn" href="5food.html">
+                        View Recipe →
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Bottom section -->
+    <section class="bottom reveal">
+        <h2>Good Food, Good Mood! 💚</h2>
+        <p>
+            Keep exploring new flavours and enjoy your favourite recipes.
+        </p>
+
+        <a href="index.html" class="home-btn">
+            Back to Home ↑
+        </a>
+    </section>
+
+    <footer>
+        © 2026 Healthy Food Collection | Made with 💚
+    </footer>
+
+    <!-- Scroll animation -->
+    <script>
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.12 }
+        );
+
+        document.querySelectorAll(".reveal").forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
+
+</body>
 </html>
